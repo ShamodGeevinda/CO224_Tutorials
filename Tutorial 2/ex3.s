@@ -26,7 +26,9 @@ main:
 	@ ---------------------
 	
 
-
+	cmp r2,r3
+	addge r5, r1, r0
+	sublt r5, r1, r0
 
 
 	
