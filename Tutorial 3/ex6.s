@@ -8,11 +8,30 @@
 
 @ ---------------------	
 fact:
+	sub sp, sp, #16
+	str r7, [sp, #12]
+	str r6, [sp, #8]
+	str r5, [sp, #4]
+	str r4, [sp, #0]
+	mov r5, #1
+	mov r7, #1
+	loop:
+	cmp r7, r4
+	bgt exit
+	mul r6, r7, r5 
+	mov r5, r6
+	add r7,r7, #1
+	b loop
 
 
-
-
-
+exit:
+mov r0,r6
+ldr r4, [sp, #0]
+	ldr r5, [sp, #4]
+	ldr r6, [sp, #8]
+	ldr r7, [sp, #12]
+	add sp, sp, #16
+	mov pc, lr
 
 
 
