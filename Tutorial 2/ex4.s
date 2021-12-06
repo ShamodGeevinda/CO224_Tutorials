@@ -27,17 +27,15 @@ main:
 
 	@ ---------------------
 	
-
-	
-	cmp r0, #5
-	ble else @ branch less than or equal go to else if
-	mov r5, #70
-	b exit   @ go to exit
+	cmp r0, #5     @ i compare with 5
+	ble else       @ branch less than or equal to 5 go to else if
+	mov r5, #70    @ f = 70
+	b exit         @ go to exit
 	
 else:
-	cmp r0, #3
-	movgt r5, #55  @ if greater than
-	movle r5, #30  @ if less than or equal
+	cmp r0, #3 	   @i>3
+	movgt r5, #55  @ if greater than 3 
+	movle r5, #30  @ if less than or equal 3
 exit:
 	
 	

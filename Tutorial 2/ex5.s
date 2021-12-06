@@ -27,13 +27,13 @@ main:
 	@ ---------------------
 	
 	
-	mov r5, #0    @ j = 0
-	mov r6, #0    @ i = 0
-loop: cmp r6, r0 @ r0 have vaalue of 10
-	  beq exit    @ if r6(i)==10 exit
-	  add r5, r5, r6  @ j=j+i
-	  add r6, r6, #1  @ i = i+1S
-	  b loop
+	mov r5, #0         @ j = 0
+	mov r6, #0         @ i = 0
+loop: cmp r6, r0       @ r0 have value of 10
+	  beq exit         @ if r6(i)==10 exit
+	  add r5, r5, r6   @ j = j + i
+	  add r6, r6, #1   @ i = i + 1
+	  b loop		   @ branch continue to loop label
 exit:
 	  
 

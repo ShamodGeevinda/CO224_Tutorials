@@ -23,12 +23,17 @@ main:
 	@ Use signed comparison
 	@ Put f to r5
 
-	@ --------------------
+	@ ---------------------
+	
 
-	cmp r2,r3          @ comparing  i and j values
-	addge r5, r0, r1   @ if i>=j   ---> f = a + b
-	sublt r5, r0, r1   @ else(i<j) ---> f = a - b
-
+	cmp r2,r3
+	blt else
+	add r5, r0, r1
+	b exit
+	
+else:
+	sub r5, r0, r1
+exit:
 
 	
 	
