@@ -9,19 +9,18 @@
 @ ---------------------	
 
 fact:
-	mov r5, #1
-	mov r7, #1
-	mov r0, #1
+	mov r1, #1  @ r1 = 1
 	loop:
-		cmp r7, r4
-		bgt exit
-		mul r0, r5, r7 
-		mov r5, r0
-		add r7,r7, #1
-		b loop
+		cmp r0, #0
+		bls exit @ if insigned r0 is lower than or equal to 0 then exit
+		
+		mul r1, r0, r1  @ multiply r0 and r1 and put result in r1
+		sub r0, r0, #1	@ r0--	
+		b loop			@ jump to loop
 
 exit:	
-	mov pc, lr
+	mov r0, r1   @ put r1 result to r0
+	mov pc, lr   @ return
 
 
 @ ---------------------	
@@ -33,7 +32,7 @@ main:
 	sub sp, sp, #4
 	str lr, [sp, #0]
 
-	mov r4, #8	@the value n
+	mov r4, #4	@the value n
 
 	@ calling the fact function
 	mov r0, r4 	@the arg1 load
